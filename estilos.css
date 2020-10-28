@@ -1,3 +1,10 @@
+.pokemon{
+  width: 150px;
+  height: 150px;
+  margin: 40px auto;
+  display: inline-block;
+}
+
 #logo{
     padding: 5%;
     height: 64px;

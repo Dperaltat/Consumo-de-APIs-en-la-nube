@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link type="text/css" rel="stylesheet" href="./estilos.css">
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
 <!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>      
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!--Import materialize.css-->
-<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-<!--Let browser know website is optimized for mobile-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Consumo de API</title>
 </head>
 
@@ -31,42 +24,96 @@
 <div class="container">
 <br>
 <nav>
-<div class="nav-wrapper grey">
-  <form>
+<div class="nav-wrapper white">
+  <form action="/results">
     <div class="input-field">
-      <input id="search" type="search" required>
-      <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-      <i class="material-icons">close</i>
+      <input type="text" id="caja" placeholder="Ingrese Un Numero">
+      <button class="text-white btn bg-danger" id="button">Buscar</button>
     </div>
+    
   </form>
 </div>
 </nav>
 
+<!--
 <div class="container">
   <div class="row col s12">
       <div class="card horizontal">
-        <div class="card-image"><img src="./Imagenes/Carrusel01.jpg"></div>
+        <div class="card-image"><img src="" id="img" class="pokemon" alt=""></div>
         <div class="card-stacked">
           <div class="card-content">
             <div class="row">
-              <span class="card-title">Bulbasaur</span>
+              <span class="card-title" id="info"></span>
               <div class="col s6">ID</div>
-              <div class="col s6">1</div>
+              <div class="col s6" id="info2"></div>
               <div class="col s6">Nombre</div>
-              <div class="col s6">Bulbasaur</div>
+              <div class="col s6" id="info"></div>
+              <div class="col s6">Tipo</div>
+              <div class="col s6" id="info2"></div>
               <div class="col s6">Experiencia Base</div>
-              <div class="col s6">14</div>
+              <div class="col s6" id="info3"></div>
               <div class="col s6">Altura</div>
-              <div class="col s6">123</div>
+              <div class="col s6" id="info4"></div>
               <div class="col s6">Peso</div>
-              <div class="col s6">53</div>
+              <div class="col s6" id="info5"></div>
             </div>
           </div>
         </div>
       </div>
   </div>
 </div>
+-->
+<div class="container">
+  <div class="row col s12">
+      <div class="card horizontal">
+        <div class="card-image"><img src="" id="img" class="pokemon" alt=""></div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <div class="row">
+              <span class="card-title"> <p id="info1"> </p></span>
+              <td><p id="info" class="text-white"></td>
+                <td><p id="info2" class="text-white"></p></td>
+                <td><p id="info3" class="text-white"></td>
+                <td><p id="info4" class="text-white"></td>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<script>
+  let buton=document.getElementById('button')
 
+  buton.addEventListener('click',()=>{
+      let caja=document.getElementById('caja').value
+      let img=document.getElementById('img')
+      let p=document.getElementById('info')
+      let p1=document.getElementById('info1')
+      let p2=document.getElementById('info2')
+      let p3=document.getElementById('info3')
+      let p4=document.getElementById('info4')
+
+      let xhttp=new XMLHttpRequest()
+      xhttp.open("GET",`https://pokeapi.co/api/v2/pokemon/${caja}`)
+      xhttp.send()
+
+      xhttp.onreadystatechange=function () {
+          if(this.readyState==4 && this.status==200)
+          {
+          let datoPokemon=JSON.parse( this.responseText)
+          console.log(datoPokemon)
+          img.setAttribute("src",datoPokemon.sprites.front_default)
+          p.textContent=datoPokemon.id
+          p1.textContent=datoPokemon.name
+          p2.textContent=datoPokemon.base_experience
+          p3.textContent=datoPokemon.height
+          p4.textContent=datoPokemon.weight
+          }
+      }
+
+  })
+</script>
+<!--
 <div class="container">
   <div class="row col s12">
       <div class="card horizontal">
@@ -94,7 +141,7 @@
 
 
 <script src="./Script.js"> </script>
-
+-->
 </div>
 </body>
 
@@ -102,7 +149,7 @@
   <div class="footer-copyright">
     <div class="container">
       © 2020 Daniel Peralta
-      <a class="grey-text text-lighten-4 right" href="https://pokeapi.co/">API</a>
+      <a class="grey-text text-lighten-4 right" href="https://pokeapi.co/">Ir a la API</a>
     </div>
   </div>
 </footer>
