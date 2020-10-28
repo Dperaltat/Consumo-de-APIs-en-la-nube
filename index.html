@@ -29,7 +29,7 @@
         <input type="text" id="caja" placeholder="Ingrese el Nombre o el ID...(1-892)">
       </div>
     </div>
-    <button class="text-white btn bg-danger" id="button">Buscar</button>
+    <button class="waves-effect text-white btn green darken-4" id="button">Buscar</button>
     
       <table class="striped centered">
         <thead>
@@ -49,12 +49,34 @@
             <td><h4 id="info"></p></td>
             <td><h4 id="info1"></td>
             <td><h4 id="info2"></p></td>
-            <td><h4 id="info3" ></td>
+            <td><h4 id="info3"></td>
             <td><h4 id="info4"></td>
           </tr>
         </tbody>
+      </table>
   </div>
-  <script src="./Script.js"> </script>
 <br>
+  <div class="container">
+    <ul class="pagination" id="pagination">
+      <button class="waves-effect text-white btn blue darken-4" id="anterior"><i class="material-icons">chevron_left</i>Anterior</button>
+      <button class="waves-effect text-white btn blue darken-4" id="siguiente">Sigueinte<i class="material-icons">chevron_right</i></button>
+    </ul>
+  </div>
+
+  <script src="./Script.js"> </script>
+
 </body>
+<footer class="page-footer amber darken-1">
+  <div class="container">
+    <h5 class="white-text">Universidad Politécnica Salesiana</h5>
+    <p class="white-text">Plataformas Web</p>
+    <p class="white-text">Consumo de API</p>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2020 Daniel Peralta
+    <a class="grey-text text-lighten-4 right" href="https://pokeapi.co/">Ir a la API</a>
+    </div>
+  </div>
+</footer>
 </html>
