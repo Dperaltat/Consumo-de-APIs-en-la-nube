@@ -1,3 +1,7 @@
+.fondo{
+  background-color: #F4F4EF;
+}
+
 .pokemon{
   width: 150px;
   height: 150px;
@@ -6,7 +10,7 @@
 }
 
 #logo{
-    padding: 5%;
+    padding: 10%;
     height: 64px;
     width:  64px;
 }
@@ -21,44 +25,14 @@ nav.nav-center ul {
 }
 
 body {
-    background-image: url("./Imagenes/FondoBall.png");
-    background-color: #f7f7f7;
+    background-image: url("./Imagenes/Pokeball01.png");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 50% 500%;
     background-image: no-repeat;
     background-image: fixed;
     background-image: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: 1050px;
+    background-size: 450px;
 }
-
-  .colum {
-    flex-direction: column;
-    margin-right: 10px;
-    flex: 1;
-  }
-  
-  .colum div {
-    background-color: aqua;
-    font-size: 1.4rem;
-    padding: 5px 0;
-    border: 2px solid green;
-  }
-  
-  .card {
-    margin-left: 10px
-  }
-  
-  .image {
-    background: grey;
-    flex: 1;
-  }
-  
-  .image img {
-    display: block;
-    padding: 5px;
-    height: 64px;
-    width:  64px;
-  }
